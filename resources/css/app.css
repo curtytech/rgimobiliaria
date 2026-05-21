@@ -1,0 +1,63 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+    --color-primary: #12514A;
+    --color-secondary: #2F4B77;
+    --color-primary-dark: #18534D;
+    --color-secondary-dark: #1E2D45;
+}
+
+/* Custom Styles Centralized */
+.glassmorphism {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glide__arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.glide__arrow:hover {
+    background: #B91C1C;
+    color: white;
+    border-color: #B91C1C;
+}
+
+.glide__arrow--left {
+    left: -20px;
+}
+
+.glide__arrow--right {
+    right: -20px;
+}
+
+@media (max-width: 1024px) {
+    .glide__arrow--left {
+        left: 10px;
+    }
+
+    .glide__arrow--right {
+        right: 10px;
+    }
+}
