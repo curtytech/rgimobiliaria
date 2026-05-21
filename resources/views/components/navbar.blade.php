@@ -6,7 +6,7 @@ $about = About::first();
 <nav class="bg-white shadow">
   <div class="container mx-auto px-4 py-4 flex justify-between items-center">
     <a href="/" class="text-xl font-bold text-primary">
-      <!-- <img src="{{ $about->logo ?? asset('img/logo.png') }}" alt="Mc Imóveis" class="h-20 w-auto"> -->
+      <img src="{{ $about->logo ?? asset('img/logo.png') }}" alt="{{ $about->name }}" class="h-20 w-auto rounded-full">
     </a>
     <!-- Botão hamburguer (mobile) -->
     <button id="menu-toggle" class="lg:hidden text-primary focus:outline-none">
