@@ -5,12 +5,29 @@ use App\Models\Imovel;
 use App\Models\TipoImovel;
 use App\Models\User;
 use App\Models\About;
+use Illuminate\Support\Str;
 
 layout('components.layouts.app');
 
 state([
     'imovelCards' => fn() => Imovel::with(['tipoImovel', 'statusImovel', 'corretor'])->where('destaque', true)->limit(6)->get(),
     'imoveisDisponiveis' => fn() => Imovel::where('status_id', 1)->orderBy('created_at', 'desc')->limit(15)->get(),
+    'bairrosDisponiveis' => fn() => Imovel::query()
+        ->disponiveis()
+        ->selectRaw('LOWER(TRIM(bairro)) as bairro_slug')
+        ->selectRaw('MIN(TRIM(bairro)) as bairro')
+        ->selectRaw('COUNT(*) as total')
+        ->whereNotNull('bairro')
+        ->whereRaw('TRIM(bairro) <> ""')
+        ->groupByRaw('LOWER(TRIM(bairro))')
+        ->get()
+        ->map(fn(object $bairro): array => [
+            'nome' => Str::title(Str::lower($bairro->bairro)),
+            'slug' => $bairro->bairro_slug,
+            'total' => (int) $bairro->total,
+        ])
+        ->sortBy('nome', SORT_NATURAL | SORT_FLAG_CASE)
+        ->values(),
     'imovelCount' => fn() => Imovel::count(),
     'corretores' => fn() => User::where('role', 'corretor')->get(),
     'tipoImovel' => fn() => TipoImovel::all(),
@@ -136,36 +153,29 @@ state([
         <div class="container px-4 mx-auto">
             <h2 class="mb-8 text-2xl font-bold text-gray-800">Imóveis disponíveis por bairro</h2>
             <div class="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-6">
-                <div class="flex flex-col items-center p-4 bg-white rounded-xl shadow">
-                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=400&auto=format&fit=crop"
-                        alt="Centro" class="object-cover mb-2 w-24 h-24 rounded-lg">
-                    <span class="font-bold text-gray-800">Centro</span>
-                    <span class="text-sm font-semibold text-primary">31 imóveis</span>
-                </div>
-                <div class="flex flex-col items-center p-4 bg-white rounded-xl shadow">
-                    <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?q=80&w=400&auto=format&fit=crop"
-                        alt="Flexeiras" class="object-cover mb-2 w-24 h-24 rounded-lg">
-                    <span class="font-bold text-gray-800">Flexeiras</span>
-                    <span class="text-sm font-semibold text-primary">17 imóveis</span>
-                </div>
-                <div class="flex flex-col items-center p-4 bg-white rounded-xl shadow">
-                    <img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?q=80&w=400&auto=format&fit=crop"
-                        alt="Barbuda" class="object-cover mb-2 w-24 h-24 rounded-lg">
-                    <span class="font-bold text-gray-800">Barbuda</span>
-                    <span class="text-sm font-semibold text-primary">8 imóveis</span>
-                </div>
-                <div class="flex flex-col items-center p-4 bg-white rounded-xl shadow">
-                    <img src="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?q=80&w=400&auto=format&fit=crop"
-                        alt="Nova Marília" class="object-cover mb-2 w-24 h-24 rounded-lg">
-                    <span class="font-bold text-gray-800">Nova Marília</span>
-                    <span class="text-sm font-semibold text-primary">4 imóveis</span>
-                </div>
-                <div class="flex flex-col items-center p-4 bg-white rounded-xl shadow">
-                    <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?q=80&w=400&auto=format&fit=crop"
-                        alt="Figueira" class="object-cover mb-2 w-24 h-24 rounded-lg">
-                    <span class="font-bold text-gray-800">Figueira</span>
-                    <span class="text-sm font-semibold text-primary">6 imóveis</span>
-                </div>               
+                @forelse ($bairrosDisponiveis as $bairro)
+                    <a href="{{ route('search', ['neighborhood' => $bairro['nome']]) }}"
+                        wire:key="bairro-{{ $bairro['slug'] }}"
+                        class="flex flex-col justify-between p-5 bg-white rounded-xl shadow transition hover:-translate-y-1 hover:shadow-lg">
+                        <div class="flex items-center justify-center mb-4 w-14 h-14 rounded-full bg-primary/10 text-primary">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-7 h-7">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M12 21s7-4.35 7-11a7 7 0 1 0-14 0c0 6.65 7 11 7 11Z" />
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M12 11.25a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5Z" />
+                            </svg>
+                        </div>
+                        <span class="text-lg font-bold text-gray-800">{{ $bairro['nome'] }}</span>
+                        <span class="mt-2 text-sm font-semibold text-primary">
+                            {{ $bairro['total'] }} {{ $bairro['total'] === 1 ? 'imóvel' : 'imóveis' }}
+                        </span>
+                    </a>
+                @empty
+                    <div class="col-span-full p-6 text-center bg-white rounded-xl shadow">
+                        <p class="text-gray-600">Nenhum imóvel disponível com bairro informado no momento.</p>
+                    </div>
+                @endforelse
             </div>
         </div>
     </section>
