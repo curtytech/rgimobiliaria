@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ $title ?? 'Mc Imóveis' }}</title>
+    <title>{{ $title ?? 'RG Imóveis' }}</title>
 
     <!-- Favicons -->
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -17,14 +17,14 @@
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="{{ $title ?? 'Mc Imóveis Imobiliária' }}">
-    <meta property="og:description" content="Encontre o imóvel dos seus sonhos com a Mc Imóveis Imobiliária">
+    <meta property="og:title" content="{{ $title ?? 'RG Imóveis' }}">
+    <meta property="og:description" content="Encontre o imóvel dos seus sonhos com a RG Imóveis">
     <meta property="og:image" content="{{ asset('img/logo_mcImóveis.png') }}">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:title" content="{{ $title ?? 'Mc Imóveis Imobiliária' }}">
-    <meta property="twitter:description" content="Encontre o imóvel dos seus sonhos com a Mc Imóveis Imobiliária">
+    <meta property="twitter:title" content="{{ $title ?? 'RG Imóveis' }}">
+    <meta property="twitter:description" content="Encontre o imóvel dos seus sonhos com a RG Imóveis">
     <meta property="twitter:image" content="{{ asset('img/logo_mcImóveis.png') }}">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
