@@ -34,6 +34,7 @@ class DatabaseSeeder extends Seeder
             TipoImovelSeeder::class,
             StatusImovelSeeder::class,
             ImovelSeeder::class,
+            AboutSeeder::class,
         ]);
     }
 }
