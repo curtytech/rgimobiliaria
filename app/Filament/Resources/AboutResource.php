@@ -5,8 +5,8 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\AboutResource\Pages;
 use App\Models\About;
 use Filament\Forms\Components\FileUpload;
-use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Section;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
@@ -168,7 +168,7 @@ class AboutResource extends Resource
             ->columns([
                 ImageColumn::make('logo')
                     ->label('Logo')
-                    ->disk('public')
+                    ->getStateUsing(fn (About $record): string => $record->logo_url)
                     ->square(),
 
                 TextColumn::make('enterprise_name')
