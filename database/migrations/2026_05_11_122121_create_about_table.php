@@ -19,11 +19,11 @@ return new class extends Migration
             $table->string('email');
             $table->string('phone');
             $table->string('address')->nullable();
-            $table->string('city');->nullable();
-            $table->string('state');->nullable();
-            $table->string('zip');->nullable();
-            $table->string('country');->nullable();
-            $table->string('logo');->nullable();
+            $table->string('city')->nullable();
+            $table->string('state')->nullable();
+            $table->string('zip')->nullable();
+            $table->string('country')->nullable();
+            $table->string('logo')->nullable();
             $table->string('banner')->nullable();
             $table->string('video_link')->nullable();
             $table->timestamps();
