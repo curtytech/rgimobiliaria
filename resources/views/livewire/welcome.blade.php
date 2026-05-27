@@ -190,7 +190,7 @@ state([
                 <div class="flex flex-col w-full md:w-1/2">
                     <div class="relative w-full h-0 pb-[56.25%]">
                         <!-- src="https://www.youtube.com/embed/CEGr2_p6haA?si=2Y19fzaFpVvySfQc" -->
-                        <iframe
+                        <!-- <iframe
                             class="absolute top-0 left-0 w-full h-full rounded-lg"
                             src="https://www.youtube.com/embed/RH_V2rtFqYM"
                             title="YouTube video player"
@@ -198,7 +198,7 @@ state([
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                             referrerpolicy="strict-origin-when-cross-origin"
                             allowfullscreen>
-                        </iframe>
+                        </iframe> -->
                     </div>
                 </div>
             </div>
