@@ -275,7 +275,7 @@ $propertyTypeLabel = computed(function () {
                     <div class="bg-white rounded-xl shadow p-6">
                         <h3 class="text-lg font-bold text-gray-900 mb-4">Interessado?</h3>
                         <div class="space-y-4">
-                            <a href="https://wa.me/5521981366864?text=Olá! Tenho interesse no imóvel: {{ urlencode($imovel->titulo) }}"
+                            <a href="https://wa.me/5521964729156?text=Olá! Tenho interesse no imóvel: {{ urlencode($imovel->titulo) }}"
                                 target="_blank"
                                 class="w-full py-3 px-4 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors font-semibold inline-flex items-center justify-center">
                                 <x-lucide-phone class="w-4 h-4 mr-2" />
