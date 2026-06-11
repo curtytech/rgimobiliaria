@@ -83,7 +83,6 @@ class AboutResource extends Resource
                     TextInput::make('video_link')
                         ->label('Link do Video')
                         ->url()
-                        ->required()
                         ->maxLength(255)
                         ->placeholder('https://www.youtube.com/watch?v=VIDEO_ID')
                         ->validationMessages([

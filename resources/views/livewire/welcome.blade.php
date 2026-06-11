@@ -149,36 +149,32 @@ state([
         </div>
     </section>
     <!-- Imóveis por Bairro Section -->
-    <section class="py-12 bg-gray-50">
-        <div class="container px-4 mx-auto">
-            <h2 class="mb-8 text-2xl font-bold text-gray-800">Imóveis disponíveis por bairro</h2>
-            <div class="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-6">
-                @forelse ($bairrosDisponiveis as $bairro)
-                    <a href="{{ route('search', ['neighborhood' => $bairro['nome']]) }}"
-                        wire:key="bairro-{{ $bairro['slug'] }}"
-                        class="flex flex-col justify-between p-5 bg-white rounded-xl shadow transition hover:-translate-y-1 hover:shadow-lg">
-                        <div class="flex items-center justify-center mb-4 w-14 h-14 rounded-full bg-primary/10 text-primary">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                                stroke="currentColor" class="w-7 h-7">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M12 21s7-4.35 7-11a7 7 0 1 0-14 0c0 6.65 7 11 7 11Z" />
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M12 11.25a1.25 1.25 0 1 0 0-2.5 1.25 1.25 0 0 0 0 2.5Z" />
-                            </svg>
-                        </div>
-                        <span class="text-lg font-bold text-gray-800">{{ $bairro['nome'] }}</span>
-                        <span class="mt-2 text-sm font-semibold text-primary">
-                            {{ $bairro['total'] }} {{ $bairro['total'] === 1 ? 'imóvel' : 'imóveis' }}
-                        </span>
-                    </a>
-                @empty
-                    <div class="col-span-full p-6 text-center bg-white rounded-xl shadow">
-                        <p class="text-gray-600">Nenhum imóvel disponível com bairro informado no momento.</p>
+{{--
+<section class="py-12 bg-gray-50">
+    <div class="container px-4 mx-auto">
+        <h2 class="mb-8 text-2xl font-bold text-gray-800">Imóveis disponíveis por bairro</h2>
+        <div class="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-6">
+            @forelse ($bairrosDisponiveis as $bairro)
+                <a href="{{ route('search', ['neighborhood' => $bairro['nome']]) }}"
+                    wire:key="bairro-{{ $bairro['slug'] }}"
+                    class="flex flex-col justify-between p-5 bg-white rounded-xl shadow transition hover:-translate-y-1 hover:shadow-lg">
+                    <div class="flex items-center justify-center mb-4 w-14 h-14 rounded-full bg-primary/10 text-primary">
+                        ...
                     </div>
-                @endforelse
-            </div>
+                    <span class="text-lg font-bold text-gray-800">{{ $bairro['nome'] }}</span>
+                    <span class="mt-2 text-sm font-semibold text-primary">
+                        {{ $bairro['total'] }} {{ $bairro['total'] === 1 ? 'imóvel' : 'imóveis' }}
+                    </span>
+                </a>
+            @empty
+                <div class="col-span-full p-6 text-center bg-white rounded-xl shadow">
+                    <p class="text-gray-600">Nenhum imóvel disponível com bairro informado no momento.</p>
+                </div>
+            @endforelse
         </div>
-    </section>
+    </div>
+</section>
+--}}
 
     <section class="py-12 bg-white">
         <div class="container px-4 mx-auto">

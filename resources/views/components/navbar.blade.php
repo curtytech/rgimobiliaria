@@ -4,9 +4,9 @@ $about = About::first();
 ?>
 
 <nav class="bg-white shadow">
-  <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+  <div class="container mx-auto px-8 py-4 flex justify-between items-center">
     <a href="/" class="text-xl font-bold text-primary">
-      <img src="{{ $about?->logo_url ?? asset('img/logo.png') }}" alt="{{ $about?->enterprise_name ?? 'RG Imobiliaria' }}" class="h-20 w-auto rounded-full">
+      <img src="{{ $about?->logo_url ?? asset('img/logo.png') }}" alt="{{ $about?->enterprise_name ?? 'RG Imobiliaria' }}" class="h-20 w-auto ">
     </a>
     <!-- Botão hamburguer (mobile) -->
     <button id="menu-toggle" class="lg:hidden text-primary focus:outline-none">
