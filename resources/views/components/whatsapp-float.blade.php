@@ -1,6 +1,6 @@
 <div class="fixed bottom-6 right-6 z-50">
     <a href="https://wa.me/5521964729156?text=Olá! Gostaria de mais informações sobre os imóveis disponíveis." 
-       target="_blank" 
+       target="_blank"
        class="bg-green-500 hover:bg-green-600 text-white rounded-full p-4 shadow-lg transition-all duration-300 hover:scale-110 flex items-center justify-center group">
         <!-- Ícone do WhatsApp -->
         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
