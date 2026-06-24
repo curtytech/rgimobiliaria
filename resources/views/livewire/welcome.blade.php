@@ -39,7 +39,7 @@ state([
     <!-- Hero Section -->
     <section id="hero" class="relative min-h-[70vh] md:min-h-[80vh] flex items-center justify-center text-white">
         <div class="absolute inset-0 z-0 bg-center bg-no-repeat bg-cover"
-            style="background-image: url('{{ asset('hero.jpg') }}');">
+            style="background-image: url('{{ asset('hero.png') }}');">
             <div class="absolute inset-0 bg-black/50"></div>
         </div>
         <div class="relative z-10 px-4 text-center">
