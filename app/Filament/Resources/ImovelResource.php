@@ -283,7 +283,7 @@ class ImovelResource extends Resource
                             ->directory('imoveis')
                             ->acceptedFileTypes(['image/webp', 'image/png', 'image/jpeg', 'image/jpg'])
                             ->rules(['mimes:webp,png,jpg,jpeg'])
-                            ->maxFiles(10)
+                            ->maxFiles(20)
                             ->maxSize(20480), // 20 MB, alinhado com Livewire
                         Actions::make([
                             Action::make('clearFotos')
