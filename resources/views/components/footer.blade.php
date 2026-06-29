@@ -16,9 +16,9 @@
                 </div> -->
                 <div class="text-center">
                     <h3 class="text-lg font-semibold mb-4">Contato</h3>
-                    <p class="text-gray-300">Contato: {{ $about->contact ?? 'RG Imobiliária' }}</p>
+                    <p class="text-gray-300">Contato: {{ $about->contact ?? 'RG Imóveis' }}</p>
                     <p class="text-gray-300">Tel: {{ $about?->phone ?? '(21) 2523-5959' }}</p>
-                    <p class="text-gray-300">Email: {{ $about?->email ?? 'contato@rgImobiliária.com.br' }}</p>
+                    <p class="text-gray-300">Email: {{ $about?->email ?? 'contato@rgimoveis.com.br' }}</p>
                 </div>
                 <div class="text-center">
                     <h3 class="text-lg font-semibold mb-4">Endereço</h3>
@@ -29,7 +29,7 @@
                 </div>
             </div>
             <div class="border-t border-gray-700 mt-8 pt-8 text-center">
-                <p class="text-gray-300">&copy; {{ date('Y') }} {{ $about?->enterprise_name ?? 'RG Imobiliária' }}. Todos os direitos reservados.</p>
+                <p class="text-gray-300">&copy; {{ date('Y') }} {{ $about?->enterprise_name ?? 'RG Imóveis' }}. Todos os direitos reservados.</p>
             </div>
         </div>
     </div>
