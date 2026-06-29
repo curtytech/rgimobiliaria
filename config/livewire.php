@@ -6,8 +6,8 @@ return [
     'layout' => 'components.layouts.app',
 
     'temporary_file_upload' => [
-        'disk' => 'public',
-        'directory' => 'livewire-tmp',
+        'disk' => env('LIVEWIRE_UPLOAD_DISK', 'local'),
+        'directory' => env('LIVEWIRE_UPLOAD_DIRECTORY', 'livewire-tmp'),
         // Regras espelham as do Filament; max em MB (via validação do Livewire)
         'rules' => 'mimes:webp,png,jpg,jpeg|max:20480',
         'middleware' => 'web',

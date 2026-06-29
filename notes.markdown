@@ -23,6 +23,17 @@ php artisan key:generate
 
 
 
+chown -R www-data:www-data storage bootstrap/cache
+chmod -R 775 storage bootstrap/cache
+
+chown -R www-data:www-data storage/app/public
+chmod -R 775 storage/app/public
+
+chown -R www-data:www-data storage/app/livewire-tmp
+chmod -R 775 storage/app/livewire-tmp
+
+
+
 Bootstrap/app.php deve ficar assim
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
